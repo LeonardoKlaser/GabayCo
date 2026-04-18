@@ -1,7 +1,19 @@
+import Hero from "@/components/Hero";
+import AboutMe from "@/components/AboutMe";
+import PainPoints from "@/components/PainPoints";
+import ValueLadder from "@/components/ValueLadder";
+import CTASection from "@/components/CTASection";
+import Footer from "@/components/Footer";
+
 export default function Home() {
   return (
     <main>
-      <h1 className="font-heading text-4xl text-center py-20">Gabriele.</h1>
+      <Hero />
+      <AboutMe />
+      <PainPoints />
+      <ValueLadder />
+      <CTASection />
+      <Footer />
     </main>
   );
 }
