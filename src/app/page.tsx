@@ -3,7 +3,6 @@ import ServicesGrid from "@/components/ServicesGrid";
 import ServiceCarousel from "@/components/ServiceCarousel";
 import ContentPillars from "@/components/ContentPillars";
 import AboutMe from "@/components/AboutMe";
-import PainPoints from "@/components/PainPoints";
 import Marquee from "@/components/Marquee";
 import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
@@ -19,7 +18,6 @@ export default function Home() {
       ))}
       <ContentPillars />
       <AboutMe />
-      <PainPoints />
       <Marquee />
       <CTASection />
       <Footer />
