@@ -4,6 +4,7 @@ import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import WhatsAppButton from "./WhatsAppButton";
+import { HERO_PHRASE } from "@/lib/constants";
 
 export default function Hero() {
   const ref = useRef(null);
@@ -26,15 +27,26 @@ export default function Hero() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.7, ease: "easeOut" }}
         >
-          <p className="text-brand-sage text-xs tracking-[0.25em] uppercase mb-4">
-            Comunicação e Marketing
-          </p>
-          <h1 className="font-heading text-6xl md:text-7xl lg:text-8xl font-bold text-brand-black mb-6">
-            Gabriele.
-          </h1>
+          {/* Logo */}
+          <div className="flex items-center gap-4 justify-center lg:justify-start mb-8">
+            <h1 className="font-heading text-4xl md:text-5xl font-bold text-brand-dark-brown">
+              Gabriele.
+            </h1>
+            <span className="font-body font-light text-5xl md:text-6xl text-brand-taupe leading-none">
+              |
+            </span>
+            <div className="flex flex-col leading-tight">
+              <span className="font-body font-light text-[10px] uppercase tracking-[0.2em] text-brand-warm-brown">
+                Comunicação
+              </span>
+              <span className="font-body font-light text-[10px] uppercase tracking-[0.2em] text-brand-warm-brown">
+                e Marketing
+              </span>
+            </div>
+          </div>
+
           <p className="text-brand-warm-brown text-lg md:text-xl leading-relaxed max-w-lg mx-auto lg:mx-0 mb-10">
-            Estratégia, direção e presença digital para quem quer crescer com
-            intenção.
+            {HERO_PHRASE}
           </p>
           <WhatsAppButton>Fale comigo no WhatsApp</WhatsAppButton>
         </motion.div>
