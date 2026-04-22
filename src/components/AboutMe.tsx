@@ -24,10 +24,10 @@ export default function AboutMe() {
         {/* Text */}
         <AnimatedSection delay={0.15}>
           <p className="text-brand-sage text-xs tracking-[0.25em] uppercase mb-3">
-            Sobre mim
+            Quem sou eu
           </p>
           <h2 className="font-heading text-3xl md:text-4xl font-bold text-brand-black mb-6">
-            Quem é Gabriele
+            Quem Sou Eu
           </h2>
           {BIO_TEXT.split("\n\n").map((paragraph, i) => (
             <p
