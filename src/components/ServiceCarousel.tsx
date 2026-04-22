@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import { motion } from "framer-motion";
+import { useState, useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import type { CarouselServiceData } from "@/lib/constants";
 import { WHATSAPP_URL } from "@/lib/constants";
 
@@ -40,38 +40,96 @@ const themes = {
   },
 };
 
+const CARD_WIDTH_PERCENT = 75;
+const GAP_REM = 0.75;
+
+const headerVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.7, ease: "easeOut" as const },
+  },
+};
+
+const staggerContainer = {
+  hidden: {},
+  visible: {
+    transition: { staggerChildren: 0.06 },
+  },
+};
+
+const cardReveal = {
+  hidden: { opacity: 0, y: 30, scale: 0.97 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: { duration: 0.5, ease: "easeOut" as const },
+  },
+};
+
 export default function ServiceCarousel({ service }: ServiceCarouselProps) {
   const [activeIndex, setActiveIndex] = useState(0);
   const theme = themes[service.theme];
   const cards = service.cards;
-  const isLast = service.cards[activeIndex]?.tag === "RESULTADO";
+  const isLast = cards[activeIndex]?.tag === "RESULTADO";
+  const sectionRef = useRef(null);
+
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  });
+  const numberY = useTransform(scrollYProgress, [0, 1], [30, -30]);
 
   const goTo = (index: number) => {
     if (index >= 0 && index < cards.length) setActiveIndex(index);
   };
 
   return (
-    <section id={service.id} className={`${theme.bg} relative overflow-hidden`}>
-      <div className="max-w-4xl mx-auto px-6 py-16 md:py-24">
-        {/* Header */}
-        <div className="mb-8">
-          <p className={`font-heading text-5xl md:text-6xl font-normal ${theme.number}`}>
+    <section
+      id={service.id}
+      ref={sectionRef}
+      className={`${theme.bg} relative overflow-hidden`}
+    >
+      <div className="max-w-6xl mx-auto px-6 py-20 md:py-28">
+        {/* Header with entrance animation */}
+        <motion.div
+          className="mb-10"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+          variants={headerVariants}
+        >
+          <motion.p
+            className={`font-heading text-6xl md:text-7xl font-normal ${theme.number}`}
+            style={{ y: numberY }}
+          >
             {service.step}.
-          </p>
+          </motion.p>
           <h2 className={`font-body text-sm md:text-base font-semibold uppercase tracking-[0.1em] mt-1 ${theme.name}`}>
             {service.title}
           </h2>
-          <p className={`font-body text-xs mt-1 ${theme.subtitle}`}>
+          <p className={`font-body text-xs md:text-sm mt-1.5 ${theme.subtitle}`}>
             {service.subtitle}
           </p>
-        </div>
+        </motion.div>
 
-        {/* Cards — peek layout */}
-        <div className="relative overflow-hidden">
+        {/* Cards — peek layout with proper alignment */}
+        <motion.div
+          className="relative overflow-hidden"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-40px" }}
+          variants={staggerContainer}
+        >
           <motion.div
-            className="flex gap-3"
-            animate={{ x: `${-activeIndex * 75}%` }}
-            transition={{ type: "spring", stiffness: 300, damping: 30 }}
+            className="flex"
+            style={{ gap: `${GAP_REM}rem` }}
+            animate={{
+              x: `calc(-${activeIndex * CARD_WIDTH_PERCENT}% - ${activeIndex * GAP_REM}rem)`,
+            }}
+            transition={{ type: "spring", stiffness: 260, damping: 30 }}
             drag="x"
             dragConstraints={{ left: -(cards.length - 1) * 300, right: 0 }}
             dragElastic={0.1}
@@ -86,39 +144,53 @@ export default function ServiceCarousel({ service }: ServiceCarouselProps) {
             {cards.map((card, i) => (
               <motion.div
                 key={i}
-                className={`min-w-[72%] md:min-w-[70%] rounded-2xl p-5 md:p-6 ${theme.cardBg} transition-opacity duration-300 ${
+                variants={cardReveal}
+                className={`min-w-[${CARD_WIDTH_PERCENT}%] max-w-[${CARD_WIDTH_PERCENT}%] rounded-2xl p-6 md:p-8 ${theme.cardBg} transition-opacity duration-300 ${
                   i === activeIndex ? "opacity-100" : "opacity-35"
                 }`}
+                style={{
+                  minWidth: `${CARD_WIDTH_PERCENT}%`,
+                  maxWidth: `${CARD_WIDTH_PERCENT}%`,
+                }}
               >
                 <span
-                  className={`inline-block font-body text-[8px] uppercase tracking-[0.12em] px-2.5 py-1 rounded ${theme.tagBg} mb-3`}
+                  className={`inline-block font-body text-[9px] uppercase tracking-[0.12em] px-3 py-1.5 rounded ${theme.tagBg} mb-4`}
                 >
                   {card.tag}
                 </span>
-                <h3 className={`font-heading text-base md:text-lg mb-2 ${theme.cardTitle}`}>
+                <h3 className={`font-heading text-lg md:text-xl mb-3 ${theme.cardTitle}`}>
                   {card.title}
                 </h3>
-                <p className={`font-body text-[11px] md:text-xs leading-relaxed ${theme.cardText}`}>
+                <p className={`font-body text-xs md:text-sm leading-relaxed ${theme.cardText}`}>
                   {card.text}
                 </p>
                 {/* WhatsApp CTA on last card */}
                 {isLast && i === activeIndex && (
-                  <a
+                  <motion.a
                     href={WHATSAPP_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`inline-block mt-4 px-6 py-3 rounded-lg font-body text-xs font-medium uppercase tracking-widest transition-transform duration-200 hover:scale-105 ${theme.ctaBg}`}
+                    className={`inline-block mt-5 px-7 py-3.5 rounded-lg font-body text-xs font-medium uppercase tracking-widest ${theme.ctaBg}`}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.98 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 17 }}
                   >
                     Quero saber mais
-                  </a>
+                  </motion.a>
                 )}
               </motion.div>
             ))}
           </motion.div>
-        </div>
+        </motion.div>
 
         {/* Navigation: arrows + dots */}
-        <div className="flex items-center justify-between mt-6">
+        <motion.div
+          className="flex items-center justify-between mt-8"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.4, duration: 0.5 }}
+        >
           <button
             onClick={() => goTo(activeIndex - 1)}
             disabled={activeIndex === 0}
@@ -129,7 +201,7 @@ export default function ServiceCarousel({ service }: ServiceCarouselProps) {
             &larr; Anterior
           </button>
 
-          <div className="flex items-center gap-1.5">
+          <div className="flex items-center gap-2">
             {cards.map((_, i) => (
               <button
                 key={i}
@@ -152,7 +224,7 @@ export default function ServiceCarousel({ service }: ServiceCarouselProps) {
           >
             Pr&oacute;ximo &rarr;
           </button>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
