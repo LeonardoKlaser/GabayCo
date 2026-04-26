@@ -21,19 +21,19 @@ const staggerPills = {
 
 export default function ValueLadder() {
   return (
-    <section className="bg-brand-cream py-20 px-6 relative overflow-hidden">
+    <section className="bg-brand-ice-white py-20 px-6 relative overflow-hidden">
       {/* Grain */}
       <div className="absolute inset-0 opacity-[0.02] pointer-events-none bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIiB4PSIwIiB5PSIwIj48ZmVUdXJidWxlbmNlIGJhc2VGcmVxdWVuY3k9Ii43NSIgc3RpdGNoVGlsZXM9InN0aXRjaCIgdHlwZT0iZnJhY3RhbE5vaXNlIi8+PGZlQ29sb3JNYXRyaXggdHlwZT0ic2F0dXJhdGUiIHZhbHVlcz0iMCIvPjwvZmlsdGVyPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbHRlcj0idXJsKCNhKSIvPjwvc3ZnPg==')]" />
 
       <div className="max-w-3xl mx-auto relative">
         <AnimatedSection className="text-center mb-10">
-          <p className="text-brand-sage text-xs tracking-[0.25em] uppercase mb-3">
+          <p className="text-brand-light-blue text-xs tracking-[0.25em] uppercase mb-3">
             Como posso te ajudar
           </p>
           <h2 className="font-heading text-3xl md:text-4xl font-bold text-brand-black mb-3">
             A solução certa para o seu momento
           </h2>
-          <p className="text-brand-taupe text-sm">
+          <p className="text-brand-steel-blue text-sm">
             Clique para ir direto ao que faz sentido para você
           </p>
         </AnimatedSection>
@@ -54,8 +54,8 @@ export default function ValueLadder() {
               whileTap={{ scale: 0.97 }}
               className={`${
                 s.step === "05"
-                  ? "bg-brand-dark-brown"
-                  : "bg-brand-sage"
+                  ? "bg-brand-dark-navy"
+                  : "bg-brand-light-blue"
               } text-white px-5 py-2.5 rounded-full text-xs md:text-sm font-medium tracking-wide transition-shadow hover:shadow-lg flex items-center gap-2`}
             >
               <span className="opacity-70">{s.step}</span>
