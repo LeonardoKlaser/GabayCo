@@ -33,7 +33,7 @@ export default function ProductSection({ service, index }: ProductSectionProps) 
   return (
     <section
       id={service.id}
-      className={`${isEven ? "bg-brand-cream" : "bg-white"} relative overflow-hidden`}
+      className={`${isEven ? "bg-brand-ice-white" : "bg-white"} relative overflow-hidden`}
     >
       {/* Grain texture overlay */}
       <div className="absolute inset-0 opacity-[0.02] pointer-events-none bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIiB4PSIwIiB5PSIwIj48ZmVUdXJidWxlbmNlIGJhc2VGcmVxdWVuY3k9Ii43NSIgc3RpdGNoVGlsZXM9InN0aXRjaCIgdHlwZT0iZnJhY3RhbE5vaXNlIi8+PGZlQ29sb3JNYXRyaXggdHlwZT0ic2F0dXJhdGUiIHZhbHVlcz0iMCIvPjwvZmlsdGVyPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbHRlcj0idXJsKCNhKSIvPjwvc3ZnPg==')]" />
@@ -57,13 +57,13 @@ export default function ProductSection({ service, index }: ProductSectionProps) 
               <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-brand-black">
                 {service.title}
               </h2>
-              <p className="text-brand-taupe text-sm mt-1">{service.subtitle}</p>
+              <p className="text-brand-steel-blue text-sm mt-1">{service.subtitle}</p>
             </div>
           </div>
 
           {/* Hook quote */}
-          <div className="border-l-4 border-brand-sage pl-5 py-2">
-            <p className="text-brand-warm-brown text-lg md:text-xl italic leading-relaxed">
+          <div className="border-l-4 border-brand-light-blue pl-5 py-2">
+            <p className="text-brand-medium-navy text-lg md:text-xl italic leading-relaxed">
               {service.hook}
             </p>
           </div>
@@ -78,9 +78,9 @@ export default function ProductSection({ service, index }: ProductSectionProps) 
           viewport={{ once: true, margin: "-60px" }}
         >
           <div
-            className={`${isEven ? "bg-white" : "bg-brand-cream"} rounded-2xl p-6 md:p-8`}
+            className={`${isEven ? "bg-white" : "bg-brand-ice-white"} rounded-2xl p-6 md:p-8`}
           >
-            <p className="text-brand-dark-brown text-base md:text-lg leading-relaxed">
+            <p className="text-brand-dark-navy text-base md:text-lg leading-relaxed">
               {service.description}
             </p>
           </div>
@@ -96,24 +96,24 @@ export default function ProductSection({ service, index }: ProductSectionProps) 
         >
           <motion.div
             variants={fadeUp}
-            className={`${isEven ? "bg-white" : "bg-brand-cream"} rounded-2xl p-6 md:p-8`}
+            className={`${isEven ? "bg-white" : "bg-brand-ice-white"} rounded-2xl p-6 md:p-8`}
           >
-            <p className="text-brand-sage text-xs tracking-[0.2em] uppercase font-medium mb-3">
+            <p className="text-brand-light-blue text-xs tracking-[0.2em] uppercase font-medium mb-3">
               Para quem é
             </p>
-            <p className="text-brand-warm-brown text-sm md:text-base leading-relaxed">
+            <p className="text-brand-medium-navy text-sm md:text-base leading-relaxed">
               {service.audience}
             </p>
           </motion.div>
 
           <motion.div
             variants={fadeUp}
-            className={`${isEven ? "bg-white" : "bg-brand-cream"} rounded-2xl p-6 md:p-8`}
+            className={`${isEven ? "bg-white" : "bg-brand-ice-white"} rounded-2xl p-6 md:p-8`}
           >
-            <p className="text-brand-sage text-xs tracking-[0.2em] uppercase font-medium mb-3">
+            <p className="text-brand-light-blue text-xs tracking-[0.2em] uppercase font-medium mb-3">
               Como funciona
             </p>
-            <p className="text-brand-warm-brown text-sm md:text-base leading-relaxed">
+            <p className="text-brand-medium-navy text-sm md:text-base leading-relaxed">
               {service.howItWorks}
             </p>
           </motion.div>
@@ -121,7 +121,7 @@ export default function ProductSection({ service, index }: ProductSectionProps) 
 
         {/* Deliverables checklist */}
         <motion.div
-          className={`${isEven ? "bg-white" : "bg-brand-cream"} rounded-2xl p-6 md:p-8 mb-12`}
+          className={`${isEven ? "bg-white" : "bg-brand-ice-white"} rounded-2xl p-6 md:p-8 mb-12`}
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
@@ -129,7 +129,7 @@ export default function ProductSection({ service, index }: ProductSectionProps) 
         >
           <motion.p
             variants={fadeUp}
-            className="text-brand-sage text-xs tracking-[0.2em] uppercase font-medium mb-5"
+            className="text-brand-light-blue text-xs tracking-[0.2em] uppercase font-medium mb-5"
           >
             {service.deliverablesLabel}
           </motion.p>
@@ -140,8 +140,8 @@ export default function ProductSection({ service, index }: ProductSectionProps) 
                 variants={fadeUp}
                 className="flex items-start gap-3"
               >
-                <span className="text-brand-sage mt-1 flex-shrink-0">&#10003;</span>
-                <span className="text-brand-dark-brown text-sm leading-relaxed">
+                <span className="text-brand-light-blue mt-1 flex-shrink-0">&#10003;</span>
+                <span className="text-brand-dark-navy text-sm leading-relaxed">
                   {item}
                 </span>
               </motion.div>
@@ -162,7 +162,7 @@ export default function ProductSection({ service, index }: ProductSectionProps) 
               {service.format.map((item, i) => (
                 <span
                   key={i}
-                  className="bg-brand-sage/10 text-brand-sage px-4 py-2 rounded-full text-sm font-medium"
+                  className="bg-brand-light-blue/10 text-brand-light-blue px-4 py-2 rounded-full text-sm font-medium"
                 >
                   {item}
                 </span>
@@ -180,7 +180,7 @@ export default function ProductSection({ service, index }: ProductSectionProps) 
             whileInView="visible"
             viewport={{ once: true, margin: "-60px" }}
           >
-            <div className="bg-brand-sage rounded-2xl p-6 md:p-8 text-white">
+            <div className="bg-brand-light-blue rounded-2xl p-6 md:p-8 text-white">
               <p className="text-xs tracking-[0.2em] uppercase opacity-70 mb-2">
                 Bônus
               </p>
@@ -203,7 +203,7 @@ export default function ProductSection({ service, index }: ProductSectionProps) 
             whileInView="visible"
             viewport={{ once: true, margin: "-60px" }}
           >
-            <p className="text-center text-brand-warm-gray text-sm italic">
+            <p className="text-center text-brand-blue-gray text-sm italic">
               {service.notIncluded}
             </p>
           </motion.div>
@@ -217,7 +217,7 @@ export default function ProductSection({ service, index }: ProductSectionProps) 
           whileInView="visible"
           viewport={{ once: true, margin: "-60px" }}
         >
-          <div className="bg-brand-dark-brown rounded-2xl p-6 md:p-8 text-white">
+          <div className="bg-brand-dark-navy rounded-2xl p-6 md:p-8 text-white">
             <p className="text-xs tracking-[0.2em] uppercase opacity-50 mb-5">
               Resultado
             </p>
@@ -234,7 +234,7 @@ export default function ProductSection({ service, index }: ProductSectionProps) 
                   variants={fadeUp}
                   className="flex items-start gap-3"
                 >
-                  <span className="text-brand-sage mt-0.5 flex-shrink-0">&#10003;</span>
+                  <span className="text-brand-light-blue mt-0.5 flex-shrink-0">&#10003;</span>
                   <span className="text-sm opacity-90 leading-relaxed">
                     {result}
                   </span>
@@ -252,7 +252,7 @@ export default function ProductSection({ service, index }: ProductSectionProps) 
           whileInView="visible"
           viewport={{ once: true, margin: "-60px" }}
         >
-          <p className="text-brand-taupe text-sm italic mb-8 max-w-lg mx-auto">
+          <p className="text-brand-steel-blue text-sm italic mb-8 max-w-lg mx-auto">
             {service.closing}
           </p>
           <a

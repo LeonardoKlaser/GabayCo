@@ -23,7 +23,7 @@ export default function PainPoints() {
     <section className="bg-brand-black py-24 px-6">
       <div className="max-w-4xl mx-auto text-center">
         <AnimatedSection>
-          <p className="text-brand-sage text-xs tracking-[0.25em] uppercase mb-4">
+          <p className="text-brand-light-blue text-xs tracking-[0.25em] uppercase mb-4">
             Você se identifica?
           </p>
           <h2 className="font-heading text-3xl md:text-4xl font-bold text-white mb-12 leading-tight">
@@ -43,9 +43,9 @@ export default function PainPoints() {
             <motion.div
               key={i}
               variants={cardVariant}
-              className="bg-[#111] border-l-[3px] border-brand-sage rounded-lg p-5 text-left"
+              className="bg-[#111] border-l-[3px] border-brand-light-blue rounded-lg p-5 text-left"
             >
-              <p className="text-brand-warm-gray text-sm leading-relaxed">
+              <p className="text-brand-blue-gray text-sm leading-relaxed">
                 {point}
               </p>
             </motion.div>

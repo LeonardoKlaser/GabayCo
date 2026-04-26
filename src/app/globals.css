@@ -7,18 +7,27 @@ html {
 @theme {
   /* Brand colors */
   --color-brand-black: #000000;
-  --color-brand-dark-brown: #311d16;
-  --color-brand-sage: #546462;
-  --color-brand-warm-brown: #755f54;
-  --color-brand-taupe: #977c71;
-  --color-brand-warm-gray: #bab8b1;
-  --color-brand-light-gray: #e1e0db;
-  --color-brand-cream: #edebe6;
+  --color-brand-dark-navy: #1a2744;
+  --color-brand-medium-navy: #2c4a7c;
+  --color-brand-steel-blue: #5b7fad;
+  --color-brand-light-blue: #8eaecf;
+  --color-brand-blue-gray: #c9d6e3;
+  --color-brand-ice-gray: #e8edf2;
+  --color-brand-ice-white: #f5f7fa;
   --color-brand-white: #ffffff;
 
   /* Font families */
   --font-heading: var(--font-playfair), Georgia, serif;
   --font-body: var(--font-inter), system-ui, sans-serif;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 @layer base {

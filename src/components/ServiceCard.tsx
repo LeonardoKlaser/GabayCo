@@ -49,7 +49,7 @@ export default function ServiceCard({ service }: ServiceCardProps) {
                   <ul className="space-y-2">
                     {service.deliverables.map((item, i) => (
                       <li key={i} className="flex items-start gap-2 text-sm">
-                        <span className="text-brand-sage mt-0.5">&#10003;</span>
+                        <span className="text-brand-light-blue mt-0.5">&#10003;</span>
                         <span className="opacity-80">{item}</span>
                       </li>
                     ))}

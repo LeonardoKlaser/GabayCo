@@ -66,7 +66,7 @@ export default function ServicesGrid() {
         >
           <motion.p
             variants={clipReveal}
-            className="font-body text-sm uppercase tracking-[0.08em] text-brand-cream/80"
+            className="font-body text-sm uppercase tracking-[0.08em] text-brand-ice-white/80"
           >
             Meus
           </motion.p>
@@ -79,7 +79,7 @@ export default function ServicesGrid() {
                 transition: { duration: 0.7, ease: "easeOut" as const, delay: 0.1 },
               },
             }}
-            className="font-body text-3xl md:text-4xl font-bold uppercase tracking-[0.08em] text-brand-cream mb-2"
+            className="font-body text-3xl md:text-4xl font-bold uppercase tracking-[0.08em] text-brand-ice-white mb-2"
           >
             Serviços
           </motion.h2>
@@ -91,17 +91,17 @@ export default function ServicesGrid() {
             }}
             className="flex items-center gap-2 mb-10"
           >
-            <span className="font-heading font-bold text-xs text-brand-cream">
+            <span className="font-heading font-bold text-xs text-brand-ice-white">
               Gabriele.
             </span>
-            <span className="font-body font-light text-base text-brand-warm-gray">
+            <span className="font-body font-light text-base text-brand-blue-gray">
               |
             </span>
             <div className="flex flex-col leading-tight">
-              <span className="font-body font-light text-[7px] uppercase tracking-[0.15em] text-brand-warm-gray">
+              <span className="font-body font-light text-[7px] uppercase tracking-[0.15em] text-brand-blue-gray">
                 Comunicação
               </span>
-              <span className="font-body font-light text-[7px] uppercase tracking-[0.15em] text-brand-warm-gray">
+              <span className="font-body font-light text-[7px] uppercase tracking-[0.15em] text-brand-blue-gray">
                 e Marketing
               </span>
             </div>
@@ -123,7 +123,7 @@ export default function ServicesGrid() {
               whileHover={{ scale: 1.04, y: -2 }}
               whileTap={{ scale: 0.98 }}
               onClick={() => handleClick(service.targetId)}
-              className={`bg-white text-brand-dark-brown font-body text-xs font-semibold uppercase tracking-[0.06em] text-center py-3.5 px-5 rounded transition-shadow duration-200 hover:shadow-lg ${
+              className={`bg-white text-brand-dark-navy font-body text-xs font-semibold uppercase tracking-[0.06em] text-center py-3.5 px-5 rounded transition-shadow duration-200 hover:shadow-lg ${
                 service.targetId ? "cursor-pointer" : "cursor-default"
               }`}
             >

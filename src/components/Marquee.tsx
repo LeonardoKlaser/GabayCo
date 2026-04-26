@@ -7,7 +7,7 @@ export default function Marquee() {
   const repeated = [...MARQUEE_PHRASES, ...MARQUEE_PHRASES, ...MARQUEE_PHRASES, ...MARQUEE_PHRASES];
 
   return (
-    <div className="bg-brand-dark-brown py-5 overflow-hidden relative">
+    <div className="bg-brand-dark-navy py-5 overflow-hidden relative">
       {/* Grain overlay */}
       <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIiB4PSIwIiB5PSIwIj48ZmVUdXJidWxlbmNlIGJhc2VGcmVxdWVuY3k9Ii43NSIgc3RpdGNoVGlsZXM9InN0aXRjaCIgdHlwZT0iZnJhY3RhbE5vaXNlIi8+PGZlQ29sb3JNYXRyaXggdHlwZT0ic2F0dXJhdGUiIHZhbHVlcz0iMCIvPjwvZmlsdGVyPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbHRlcj0idXJsKCNhKSIvPjwvc3ZnPg==')]" />
 
@@ -26,10 +26,10 @@ export default function Marquee() {
         {repeated.map((phrase, i) => (
           <span
             key={i}
-            className="text-brand-cream/60 text-sm md:text-base font-light tracking-[0.3em] uppercase mx-8 flex items-center gap-8"
+            className="text-brand-ice-white/60 text-sm md:text-base font-light tracking-[0.3em] uppercase mx-8 flex items-center gap-8"
           >
             {phrase}
-            <span className="text-brand-sage text-[8px]">&#9670;</span>
+            <span className="text-brand-light-blue text-[8px]">&#9670;</span>
           </span>
         ))}
       </motion.div>

@@ -5,7 +5,7 @@ export default function Footer() {
     <footer className="bg-brand-black py-16 px-6">
       <div className="max-w-4xl mx-auto text-center">
         <p className="font-heading text-2xl text-white mb-2">Gabriele.</p>
-        <p className="text-brand-warm-gray text-xs tracking-[0.2em] uppercase mb-8">
+        <p className="text-brand-blue-gray text-xs tracking-[0.2em] uppercase mb-8">
           Comunicação e Marketing
         </p>
 
@@ -14,7 +14,7 @@ export default function Footer() {
             href={SOCIAL_LINKS.instagram}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-brand-sage text-sm hover:text-white transition-colors"
+            className="text-brand-light-blue text-sm hover:text-white transition-colors"
           >
             Instagram
           </a>
@@ -22,7 +22,7 @@ export default function Footer() {
             href={SOCIAL_LINKS.tiktok}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-brand-sage text-sm hover:text-white transition-colors"
+            className="text-brand-light-blue text-sm hover:text-white transition-colors"
           >
             TikTok
           </a>
@@ -30,13 +30,13 @@ export default function Footer() {
             href={SOCIAL_LINKS.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-brand-sage text-sm hover:text-white transition-colors"
+            className="text-brand-light-blue text-sm hover:text-white transition-colors"
           >
             LinkedIn
           </a>
         </div>
 
-        <p className="text-brand-warm-brown text-xs">
+        <p className="text-brand-medium-navy text-xs">
           &copy; 2026 Gabriele Ayres. Todos os direitos reservados.
         </p>
       </div>

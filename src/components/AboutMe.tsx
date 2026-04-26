@@ -68,7 +68,7 @@ export default function AboutMe() {
         >
           <motion.p
             variants={textSlide}
-            className="text-brand-sage text-xs tracking-[0.25em] uppercase mb-3"
+            className="text-brand-light-blue text-xs tracking-[0.25em] uppercase mb-3"
           >
             Quem sou eu
           </motion.p>
@@ -82,7 +82,7 @@ export default function AboutMe() {
             <motion.p
               key={i}
               variants={fadeUp}
-              className="text-brand-warm-brown leading-relaxed mb-4 last:mb-0"
+              className="text-brand-medium-navy leading-relaxed mb-4 last:mb-0"
             >
               {paragraph}
             </motion.p>

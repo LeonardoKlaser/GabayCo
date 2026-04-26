@@ -14,7 +14,7 @@ export default function WhatsAppButton({
   const base =
     "inline-block px-8 py-4 rounded-lg font-medium text-sm tracking-widest uppercase transition-transform duration-200 hover:scale-105";
   const variants = {
-    filled: "bg-brand-sage text-white",
+    filled: "bg-brand-light-blue text-white",
     inverted: "bg-white text-brand-black",
   };
 

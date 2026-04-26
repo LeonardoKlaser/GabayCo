@@ -57,7 +57,7 @@ export default function ContentPillars() {
         />
       </motion.div>
       {/* Warm tint overlay — desaturates the photo and blends with brand palette */}
-      <div className="absolute inset-0 bg-brand-dark-brown/70 mix-blend-multiply" />
+      <div className="absolute inset-0 bg-brand-dark-navy/70 mix-blend-multiply" />
       {/* Gradient for contrast — darker top & bottom for text readability */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/20 to-black/55" />
 
@@ -70,7 +70,7 @@ export default function ContentPillars() {
         >
           <motion.p
             variants={clipReveal}
-            className="font-body text-base md:text-lg uppercase tracking-[0.08em] text-brand-cream/80"
+            className="font-body text-base md:text-lg uppercase tracking-[0.08em] text-brand-ice-white/80"
           >
             Como pensamos
           </motion.p>
@@ -83,7 +83,7 @@ export default function ContentPillars() {
                 transition: { duration: 0.7, ease: "easeOut" as const, delay: 0.1 },
               },
             }}
-            className="font-body text-4xl md:text-5xl font-bold uppercase tracking-[0.08em] text-brand-cream"
+            className="font-body text-4xl md:text-5xl font-bold uppercase tracking-[0.08em] text-brand-ice-white"
           >
             Conteúdo
           </motion.h2>
@@ -95,17 +95,17 @@ export default function ContentPillars() {
             }}
             className="flex items-center gap-3 mt-3"
           >
-            <span className="font-heading font-bold text-base text-brand-cream">
+            <span className="font-heading font-bold text-base text-brand-ice-white">
               Gabriele.
             </span>
-            <span className="font-body font-light text-xl text-brand-warm-gray">
+            <span className="font-body font-light text-xl text-brand-blue-gray">
               |
             </span>
             <div className="flex flex-col leading-tight">
-              <span className="font-body font-light text-[9px] uppercase tracking-[0.15em] text-brand-warm-gray">
+              <span className="font-body font-light text-[9px] uppercase tracking-[0.15em] text-brand-blue-gray">
                 Comunicação
               </span>
-              <span className="font-body font-light text-[9px] uppercase tracking-[0.15em] text-brand-warm-gray">
+              <span className="font-body font-light text-[9px] uppercase tracking-[0.15em] text-brand-blue-gray">
                 e Marketing
               </span>
             </div>
@@ -124,7 +124,7 @@ export default function ContentPillars() {
             <motion.div key={pillar.number} variants={fadeUp}>
               {/* Decorative number */}
               <motion.p
-                className="font-heading text-6xl md:text-7xl text-brand-cream/30 mb-2"
+                className="font-heading text-6xl md:text-7xl text-brand-ice-white/30 mb-2"
                 variants={{
                   hidden: { opacity: 0, y: 20 },
                   visible: { opacity: 1, y: 0, transition: { duration: 0.4 } },
@@ -135,12 +135,12 @@ export default function ContentPillars() {
               {/* Pill title */}
               <motion.div
                 variants={pillScale}
-                className="inline-block bg-brand-cream text-brand-dark-brown font-body text-sm font-semibold uppercase tracking-[0.08em] px-4 py-2 rounded mb-3"
+                className="inline-block bg-brand-ice-white text-brand-dark-navy font-body text-sm font-semibold uppercase tracking-[0.08em] px-4 py-2 rounded mb-3"
               >
                 {pillar.title}
               </motion.div>
               {/* Description */}
-              <p className="font-body text-sm md:text-base text-brand-cream leading-relaxed">
+              <p className="font-body text-sm md:text-base text-brand-ice-white leading-relaxed">
                 {pillar.description}
               </p>
             </motion.div>
