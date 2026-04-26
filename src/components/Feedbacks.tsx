@@ -31,7 +31,7 @@ export default function Feedbacks() {
         {/* Right fade */}
         <div className="absolute right-0 top-0 w-32 h-full bg-gradient-to-l from-brand-dark-navy to-transparent z-10 pointer-events-none" />
 
-        <ImageMarquee direction="right" duration={50} pauseOnHover>
+        <ImageMarquee direction="right" duration={50} mobileDuration={25} pauseOnHover>
           <div className="flex gap-6 pr-6">
             {feedbacks.map((fb) => (
               <div

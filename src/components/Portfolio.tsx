@@ -34,7 +34,7 @@ export default function Portfolio() {
         {/* Right fade */}
         <div className="absolute right-0 top-0 w-32 h-full bg-gradient-to-l from-brand-ice-white to-transparent z-10 pointer-events-none" />
 
-        <ImageMarquee direction="left" duration={40} pauseOnHover>
+        <ImageMarquee direction="left" duration={40} mobileDuration={20} pauseOnHover>
           <div className="flex gap-6 pr-6">
           {PORTFOLIO_IMAGES.map((img) => (
             <div

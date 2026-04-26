@@ -1,11 +1,12 @@
 "use client";
 
-import { useState, type ReactNode } from "react";
+import { useState, useEffect, type ReactNode } from "react";
 
 interface Props {
   children: ReactNode;
   direction?: "left" | "right";
   duration?: number;
+  mobileDuration?: number;
   pauseOnHover?: boolean;
   className?: string;
 }
@@ -14,10 +15,21 @@ export default function ImageMarquee({
   children,
   direction = "left",
   duration = 40,
+  mobileDuration,
   pauseOnHover = true,
   className = "",
 }: Props) {
   const [paused, setPaused] = useState(false);
+  const [activeDuration, setActiveDuration] = useState(duration);
+
+  useEffect(() => {
+    const mql = window.matchMedia("(max-width: 767px)");
+    const update = () =>
+      setActiveDuration(mql.matches && mobileDuration ? mobileDuration : duration);
+    update();
+    mql.addEventListener("change", update);
+    return () => mql.removeEventListener("change", update);
+  }, [duration, mobileDuration]);
 
   return (
     <div
@@ -28,7 +40,7 @@ export default function ImageMarquee({
       <div
         className="flex"
         style={{
-          animation: `marquee ${duration}s linear infinite`,
+          animation: `marquee ${activeDuration}s linear infinite`,
           animationDirection: direction === "right" ? "reverse" : "normal",
           animationPlayState: paused ? "paused" : "running",
           willChange: "transform",
