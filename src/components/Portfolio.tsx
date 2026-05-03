@@ -34,8 +34,7 @@ export default function Portfolio() {
         {/* Right fade */}
         <div className="absolute right-0 top-0 w-32 h-full bg-gradient-to-l from-brand-ice-white to-transparent z-10 pointer-events-none" />
 
-        <ImageMarquee direction="left" duration={40} mobileDuration={20} pauseOnHover>
-          <div className="flex gap-6 pr-6">
+        <ImageMarquee direction="left" duration={18} mobileDuration={10} pauseOnHover>
           {PORTFOLIO_IMAGES.map((img) => (
             <div
               key={img.src}
@@ -50,7 +49,6 @@ export default function Portfolio() {
               />
             </div>
           ))}
-          </div>
         </ImageMarquee>
       </div>
     </section>

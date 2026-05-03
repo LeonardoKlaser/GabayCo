@@ -9,6 +9,7 @@ interface Props {
   mobileDuration?: number;
   pauseOnHover?: boolean;
   className?: string;
+  gap?: string;
 }
 
 export default function ImageMarquee({
@@ -18,8 +19,8 @@ export default function ImageMarquee({
   mobileDuration,
   pauseOnHover = true,
   className = "",
+  gap = "gap-6",
 }: Props) {
-  const [paused, setPaused] = useState(false);
   const [activeDuration, setActiveDuration] = useState(duration);
 
   useEffect(() => {
@@ -31,23 +32,21 @@ export default function ImageMarquee({
     return () => mql.removeEventListener("change", update);
   }, [duration, mobileDuration]);
 
+  const animationDirection = direction === "left" ? "normal" : "reverse";
+
   return (
     <div
-      className={`overflow-hidden ${className}`}
-      onMouseEnter={() => pauseOnHover && setPaused(true)}
-      onMouseLeave={() => pauseOnHover && setPaused(false)}
+      className={`overflow-hidden ${pauseOnHover ? "marquee-hover-pause" : ""} ${className}`}
     >
       <div
-        className="flex"
+        className={`flex w-max will-change-transform ${gap}`}
         style={{
           animation: `marquee ${activeDuration}s linear infinite`,
-          animationDirection: direction === "right" ? "reverse" : "normal",
-          animationPlayState: paused ? "paused" : "running",
-          willChange: "transform",
+          animationDirection,
         }}
       >
-        <div className="flex shrink-0">{children}</div>
-        <div className="flex shrink-0" aria-hidden="true">
+        <div className={`flex shrink-0 ${gap}`}>{children}</div>
+        <div className={`flex shrink-0 ${gap}`} aria-hidden="true">
           {children}
         </div>
       </div>

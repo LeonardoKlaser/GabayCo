@@ -129,14 +129,14 @@ export default function ServiceCarousel({ service }: ServiceCarouselProps) {
             animate={{
               x: `calc(-${activeIndex * CARD_WIDTH_PERCENT}% - ${activeIndex * GAP_REM}rem)`,
             }}
-            transition={{ type: "spring", stiffness: 260, damping: 30 }}
+            transition={{ type: "spring", stiffness: 400, damping: 35 }}
             drag="x"
             dragConstraints={{ left: -(cards.length - 1) * 300, right: 0 }}
-            dragElastic={0.1}
+            dragElastic={0.08}
             onDragEnd={(_e, info) => {
-              if (info.offset.x < -50 && activeIndex < cards.length - 1) {
+              if (info.offset.x < -30 && activeIndex < cards.length - 1) {
                 goTo(activeIndex + 1);
-              } else if (info.offset.x > 50 && activeIndex > 0) {
+              } else if (info.offset.x > 30 && activeIndex > 0) {
                 goTo(activeIndex - 1);
               }
             }}

@@ -4,10 +4,11 @@ import Image from "next/image";
 import ImageMarquee from "@/components/ImageMarquee";
 
 const feedbacks = [
-  { src: "/feedbacks/feedback_1.png", alt: "Depoimento 1" },
+  { src: "/feedbacks/feedback1.png", alt: "Depoimento 1" },
   { src: "/feedbacks/feedback2.png", alt: "Depoimento 2" },
   { src: "/feedbacks/feedback3.png", alt: "Depoimento 3" },
   { src: "/feedbacks/feedback4.png", alt: "Depoimento 4" },
+  { src: "/feedbacks/feedback5.png", alt: "Depoimento 4" },
 ];
 
 export default function Feedbacks() {
@@ -31,23 +32,21 @@ export default function Feedbacks() {
         {/* Right fade */}
         <div className="absolute right-0 top-0 w-32 h-full bg-gradient-to-l from-brand-dark-navy to-transparent z-10 pointer-events-none" />
 
-        <ImageMarquee direction="right" duration={50} mobileDuration={25} pauseOnHover>
-          <div className="flex gap-6 pr-6">
+        <ImageMarquee direction="right" duration={20} mobileDuration={35} pauseOnHover>
             {feedbacks.map((fb) => (
               <div
                 key={fb.src}
-                className="bg-white rounded-xl shadow-lg p-2 hover:scale-[1.03] transition"
+                className="bg-white rounded-2xl p-3 shadow-lg shadow-black/5 hover:scale-[1.03] transition-transform duration-300 flex-shrink-0"
               >
                 <Image
                   src={fb.src}
                   alt={fb.alt}
                   width={300}
                   height={400}
-                  className="rounded-lg w-[240px] h-[320px] md:w-[300px] md:h-[400px] object-cover"
+                  className="rounded-xl w-[240px] h-[320px] md:w-[300px] md:h-[400px] object-contain"
                 />
               </div>
             ))}
-          </div>
         </ImageMarquee>
       </div>
     </section>

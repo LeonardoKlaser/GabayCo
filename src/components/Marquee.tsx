@@ -10,7 +10,7 @@ export default function Marquee() {
 
   useEffect(() => {
     const mql = window.matchMedia("(max-width: 767px)");
-    const update = () => setDuration(mql.matches ? 14 : 25);
+    const update = () => setDuration(mql.matches ? 3 : 7);
     update();
     mql.addEventListener("change", update);
     return () => mql.removeEventListener("change", update);

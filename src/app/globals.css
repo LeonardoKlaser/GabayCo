@@ -5,15 +5,15 @@ html {
 }
 
 @theme {
-  /* Brand colors */
+  /* Brand colors — sage/forest palette based on #546462 */
   --color-brand-black: #000000;
-  --color-brand-dark-navy: #1a2744;
-  --color-brand-medium-navy: #2c4a7c;
-  --color-brand-steel-blue: #5b7fad;
-  --color-brand-light-blue: #8eaecf;
-  --color-brand-blue-gray: #c9d6e3;
-  --color-brand-ice-gray: #e8edf2;
-  --color-brand-ice-white: #f5f7fa;
+  --color-brand-dark-navy: #1f2e2c;
+  --color-brand-medium-navy: #3a4f4d;
+  --color-brand-steel-blue: #546462;
+  --color-brand-light-blue: #7a9e8e;
+  --color-brand-blue-gray: #bfcec7;
+  --color-brand-ice-gray: #e4ebe7;
+  --color-brand-ice-white: #f3f6f4;
   --color-brand-white: #ffffff;
 
   /* Font families */
@@ -27,6 +27,12 @@ html {
   }
   to {
     transform: translateX(-50%);
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .marquee-hover-pause:hover > div {
+    animation-play-state: paused !important;
   }
 }
 

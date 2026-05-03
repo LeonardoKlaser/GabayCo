@@ -15,6 +15,7 @@ export default function Home() {
     <main>
       <Hero />
       <ServicesGrid />
+      <Portfolio />
       {CAROUSEL_SERVICES.map((service) => (
         <ServiceCarousel key={service.id} service={service} />
       ))}
@@ -22,7 +23,6 @@ export default function Home() {
       <Feedbacks />
       <AboutMe />
       <Marquee />
-      <Portfolio />
       <CTASection />
       <Footer />
     </main>
