@@ -4,6 +4,7 @@ import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { CONTENT_PILLARS } from "@/lib/constants";
+import BrandLogo from "./BrandLogo";
 
 const stagger = {
   hidden: {},
@@ -87,29 +88,6 @@ export default function ContentPillars() {
           >
             Conteúdo
           </motion.h2>
-          {/* Mini logo */}
-          <motion.div
-            variants={{
-              hidden: { opacity: 0 },
-              visible: { opacity: 1, transition: { delay: 0.3, duration: 0.5 } },
-            }}
-            className="flex items-center gap-3 mt-3"
-          >
-            <span className="font-heading font-bold text-base text-brand-ice-white">
-              Gabriele.
-            </span>
-            <span className="font-body font-light text-xl text-brand-blue-gray">
-              |
-            </span>
-            <div className="flex flex-col leading-tight">
-              <span className="font-body font-light text-[9px] uppercase tracking-[0.15em] text-brand-blue-gray">
-                Comunicação
-              </span>
-              <span className="font-body font-light text-[9px] uppercase tracking-[0.15em] text-brand-blue-gray">
-                e Marketing
-              </span>
-            </div>
-          </motion.div>
         </motion.div>
 
         {/* Pillars */}
@@ -145,6 +123,17 @@ export default function ContentPillars() {
               </p>
             </motion.div>
           ))}
+        </motion.div>
+
+        {/* Brand Logo centered at bottom */}
+        <motion.div
+          className="mt-12 pt-8 border-t border-white/10"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.5, duration: 0.5 }}
+        >
+          <BrandLogo size="md" />
         </motion.div>
       </div>
     </section>
