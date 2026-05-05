@@ -1,6 +1,7 @@
 import Hero from "@/components/Hero";
 import ServicesGrid from "@/components/ServicesGrid";
 import ServiceCarousel from "@/components/ServiceCarousel";
+import ServiceTextFree from "@/components/ServiceTextFree";
 import ContentPillars from "@/components/ContentPillars";
 import Feedbacks from "@/components/Feedbacks";
 import AboutMe from "@/components/AboutMe";
@@ -16,9 +17,13 @@ export default function Home() {
       <Hero />
       <ServicesGrid />
       <Portfolio />
-      {CAROUSEL_SERVICES.map((service) => (
-        <ServiceCarousel key={service.id} service={service} />
-      ))}
+      {CAROUSEL_SERVICES.map((service, index) =>
+        index === 0 ? (
+          <ServiceTextFree key={service.id} service={service} />
+        ) : (
+          <ServiceCarousel key={service.id} service={service} />
+        )
+      )}
       <ContentPillars />
       <Feedbacks />
       <AboutMe />
