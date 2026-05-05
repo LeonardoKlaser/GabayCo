@@ -4,6 +4,7 @@ import { useState, useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import type { CarouselServiceData } from "@/lib/constants";
 import { WHATSAPP_URL } from "@/lib/constants";
+import BrandLogo from "./BrandLogo";
 
 interface ServiceCarouselProps {
   service: CarouselServiceData;
@@ -224,6 +225,17 @@ export default function ServiceCarousel({ service }: ServiceCarouselProps) {
           >
             Pr&oacute;ximo &rarr;
           </button>
+        </motion.div>
+
+        {/* Brand Logo */}
+        <motion.div
+          className="pt-8 mt-8 border-t border-current/10 opacity-60"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.6, duration: 0.5 }}
+        >
+          <BrandLogo size="sm" />
         </motion.div>
       </div>
     </section>
