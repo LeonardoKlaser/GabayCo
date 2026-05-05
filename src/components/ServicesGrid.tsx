@@ -4,6 +4,7 @@ import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { SERVICES_GRID } from "@/lib/constants";
+import BrandLogo from "./BrandLogo";
 
 const stagger = {
   hidden: {},
@@ -130,6 +131,17 @@ export default function ServicesGrid() {
               {service.label}
             </motion.button>
           ))}
+        </motion.div>
+
+        {/* Brand Logo centered at bottom */}
+        <motion.div
+          className="mt-12 pt-8 border-t border-white/10"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.5, duration: 0.5 }}
+        >
+          <BrandLogo size="md" />
         </motion.div>
       </div>
     </section>

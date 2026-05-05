@@ -30,7 +30,7 @@ const fadeUp = {
 
 const stagger = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.12 } },
+  visible: { transition: { staggerChildren: 0.15 } },
 };
 
 export default function ServiceTextFree({ service }: ServiceTextFreeProps) {
@@ -56,7 +56,7 @@ export default function ServiceTextFree({ service }: ServiceTextFreeProps) {
       <div className="max-w-4xl mx-auto px-6 py-20 md:py-28">
         {/* Header */}
         <motion.div
-          className="mb-10"
+          className="mb-12"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
@@ -83,22 +83,25 @@ export default function ServiceTextFree({ service }: ServiceTextFreeProps) {
           viewport={{ once: true, margin: "-60px" }}
           variants={stagger}
         >
-          {/* Destaque */}
+          {/* Destaque — texto corrido sem borda */}
           {destaceCard && (
-            <motion.div variants={fadeUp} className="mb-10">
-              <p className="font-body text-sm md:text-base leading-relaxed text-brand-blue-gray">
+            <motion.div variants={fadeUp} className="mb-12">
+              <p className="font-body text-base md:text-lg leading-relaxed text-brand-blue-gray">
                 {destaceCard.text}
               </p>
             </motion.div>
           )}
 
-          {/* O que você recebe */}
+          {/* O que você recebe — borda lateral */}
           {recebeCard && (
-            <motion.div variants={fadeUp} className="mb-10">
-              <p className="font-body text-[10px] md:text-xs uppercase tracking-[0.12em] text-brand-light-blue/60 mb-3">
+            <motion.div
+              variants={fadeUp}
+              className="mb-10 border-l-[3px] border-brand-light-blue pl-5 md:pl-6"
+            >
+              <p className="font-body text-[10px] md:text-xs uppercase tracking-[0.14em] text-brand-light-blue mb-2">
                 {recebeCard.tag}
               </p>
-              <h3 className="font-heading text-lg md:text-xl text-brand-ice-white mb-3">
+              <h3 className="font-heading text-xl md:text-2xl font-bold text-brand-ice-white mb-3">
                 {recebeCard.title}
               </h3>
               <p className="font-body text-sm md:text-base leading-relaxed text-brand-blue-gray">
@@ -107,13 +110,16 @@ export default function ServiceTextFree({ service }: ServiceTextFreeProps) {
             </motion.div>
           )}
 
-          {/* Como funciona */}
+          {/* Como funciona — borda lateral */}
           {funcionaCard && (
-            <motion.div variants={fadeUp} className="mb-10">
-              <p className="font-body text-[10px] md:text-xs uppercase tracking-[0.12em] text-brand-light-blue/60 mb-3">
+            <motion.div
+              variants={fadeUp}
+              className="mb-10 border-l-[3px] border-brand-light-blue pl-5 md:pl-6"
+            >
+              <p className="font-body text-[10px] md:text-xs uppercase tracking-[0.14em] text-brand-light-blue mb-2">
                 {funcionaCard.tag}
               </p>
-              <h3 className="font-heading text-lg md:text-xl text-brand-ice-white mb-3">
+              <h3 className="font-heading text-xl md:text-2xl font-bold text-brand-ice-white mb-3">
                 {funcionaCard.title}
               </h3>
               <p className="font-body text-sm md:text-base leading-relaxed text-brand-blue-gray">
@@ -122,13 +128,16 @@ export default function ServiceTextFree({ service }: ServiceTextFreeProps) {
             </motion.div>
           )}
 
-          {/* Resultado */}
+          {/* Resultado — borda lateral */}
           {resultadoCard && (
-            <motion.div variants={fadeUp} className="mb-10">
-              <p className="font-body text-[10px] md:text-xs uppercase tracking-[0.12em] text-brand-light-blue/60 mb-3">
+            <motion.div
+              variants={fadeUp}
+              className="mb-12 border-l-[3px] border-brand-light-blue pl-5 md:pl-6"
+            >
+              <p className="font-body text-[10px] md:text-xs uppercase tracking-[0.14em] text-brand-light-blue mb-2">
                 {resultadoCard.tag}
               </p>
-              <h3 className="font-heading text-lg md:text-xl text-brand-ice-white mb-3">
+              <h3 className="font-heading text-xl md:text-2xl font-bold text-brand-ice-white mb-3">
                 {resultadoCard.title}
               </h3>
               <p className="font-body text-sm md:text-base leading-relaxed text-brand-blue-gray">
@@ -161,7 +170,7 @@ export default function ServiceTextFree({ service }: ServiceTextFreeProps) {
           viewport={{ once: true }}
           transition={{ delay: 0.5, duration: 0.5 }}
         >
-          <BrandLogo size="sm" />
+          <BrandLogo size="md" />
         </motion.div>
       </div>
     </section>

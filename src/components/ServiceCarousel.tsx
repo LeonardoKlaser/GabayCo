@@ -229,13 +229,13 @@ export default function ServiceCarousel({ service }: ServiceCarouselProps) {
 
         {/* Brand Logo */}
         <motion.div
-          className="pt-8 mt-8 border-t border-current/10 opacity-60"
+          className="pt-8 mt-8 border-t border-current/10"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.6, duration: 0.5 }}
         >
-          <BrandLogo size="sm" />
+          <BrandLogo size="md" variant={service.theme === "cream" ? "dark" : "light"} />
         </motion.div>
       </div>
     </section>
