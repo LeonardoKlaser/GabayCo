@@ -1,13 +1,13 @@
 import { SOCIAL_LINKS } from "@/lib/constants";
+import BrandLogo from "./BrandLogo";
 
 export default function Footer() {
   return (
     <footer className="bg-brand-black py-16 px-6">
       <div className="max-w-4xl mx-auto text-center">
-        <p className="font-heading text-2xl text-white mb-2">Gabriele.</p>
-        <p className="text-brand-blue-gray text-xs tracking-[0.2em] uppercase mb-8">
-          Comunicação e Marketing
-        </p>
+        <div className="mb-8">
+          <BrandLogo size="lg" />
+        </div>
 
         <div className="flex justify-center gap-8 mb-8">
           <a
