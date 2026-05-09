@@ -49,7 +49,7 @@ export default function ServicesGrid() {
       {/* Background photo with parallax */}
       <motion.div className="absolute inset-0" style={{ y: bgY }}>
         <Image
-          src="/photos/IMG_2538 Large.jpeg"
+          src="/photos/IMG_2440 Large.jpeg"
           alt="Gabriele Ayres"
           fill
           className="object-cover scale-110"

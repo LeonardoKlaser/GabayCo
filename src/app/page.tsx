@@ -1,7 +1,6 @@
 import Hero from "@/components/Hero";
 import ServicesGrid from "@/components/ServicesGrid";
-import ServiceCarousel from "@/components/ServiceCarousel";
-import ServiceTextFree from "@/components/ServiceTextFree";
+import ServiceSection from "@/components/ServiceSection";
 import ContentPillars from "@/components/ContentPillars";
 import Feedbacks from "@/components/Feedbacks";
 import AboutMe from "@/components/AboutMe";
@@ -9,7 +8,7 @@ import Marquee from "@/components/Marquee";
 import Portfolio from "@/components/Portfolio";
 import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
-import { CAROUSEL_SERVICES } from "@/lib/constants";
+import { UNIFIED_SERVICES } from "@/lib/constants";
 
 export default function Home() {
   return (
@@ -17,13 +16,9 @@ export default function Home() {
       <Hero />
       <ServicesGrid />
       <Portfolio />
-      {CAROUSEL_SERVICES.map((service, index) =>
-        index === 0 ? (
-          <ServiceTextFree key={service.id} service={service} />
-        ) : (
-          <ServiceCarousel key={service.id} service={service} />
-        )
-      )}
+      {UNIFIED_SERVICES.map((service) => (
+        <ServiceSection key={service.id} service={service} />
+      ))}
       <ContentPillars />
       <Feedbacks />
       <AboutMe />

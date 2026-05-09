@@ -2,12 +2,12 @@
 
 import { useState, useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import type { CarouselServiceData } from "@/lib/constants";
+import type { ServiceSectionData } from "@/lib/constants";
 import { WHATSAPP_URL } from "@/lib/constants";
 import BrandLogo from "./BrandLogo";
 
-interface ServiceCarouselProps {
-  service: CarouselServiceData;
+interface ServiceSectionProps {
+  service: ServiceSectionData;
 }
 
 const themes = {
@@ -16,10 +16,15 @@ const themes = {
     number: "text-brand-blue-gray/40",
     name: "text-brand-ice-white",
     subtitle: "text-brand-steel-blue",
+    proseBorder: "border-brand-light-blue/40",
+    proseBg: "bg-white/[0.03]",
+    proseText: "text-brand-blue-gray",
+    proseTitle: "text-brand-ice-white",
     cardBg: "bg-white/[0.06] border border-white/10",
     tagBg: "bg-brand-light-blue/35 text-brand-ice-white",
     cardTitle: "text-brand-ice-white",
     cardText: "text-brand-blue-gray",
+    checkColor: "text-brand-light-blue",
     arrow: "text-brand-blue-gray",
     dotInactive: "bg-brand-blue-gray/30",
     dotActive: "bg-brand-light-blue",
@@ -30,10 +35,15 @@ const themes = {
     number: "text-brand-dark-navy/15",
     name: "text-brand-dark-navy",
     subtitle: "text-brand-medium-navy",
+    proseBorder: "border-brand-light-blue/50",
+    proseBg: "bg-brand-light-blue/[0.04]",
+    proseText: "text-brand-medium-navy",
+    proseTitle: "text-brand-dark-navy",
     cardBg: "bg-white border border-black/[0.06] shadow-[0_2px_8px_rgba(0,0,0,0.04)]",
     tagBg: "bg-brand-light-blue/10 text-brand-light-blue",
     cardTitle: "text-brand-dark-navy",
     cardText: "text-brand-medium-navy",
+    checkColor: "text-brand-light-blue",
     arrow: "text-brand-medium-navy",
     dotInactive: "bg-brand-dark-navy/15",
     dotActive: "bg-brand-light-blue",
@@ -70,11 +80,20 @@ const cardReveal = {
   },
 };
 
-export default function ServiceCarousel({ service }: ServiceCarouselProps) {
+const proseReveal = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: "easeOut" as const },
+  },
+};
+
+export default function ServiceSection({ service }: ServiceSectionProps) {
   const [activeIndex, setActiveIndex] = useState(0);
   const theme = themes[service.theme];
-  const cards = service.cards;
-  const isLast = cards[activeIndex]?.tag === "RESULTADO";
+  const { cards, prose } = service;
+  const isLast = activeIndex === cards.length - 1;
   const sectionRef = useRef(null);
 
   const { scrollYProgress } = useScroll({
@@ -94,7 +113,7 @@ export default function ServiceCarousel({ service }: ServiceCarouselProps) {
       className={`${theme.bg} relative overflow-hidden`}
     >
       <div className="max-w-6xl mx-auto px-6 py-20 md:py-28">
-        {/* Header with entrance animation */}
+        {/* Header */}
         <motion.div
           className="mb-10"
           initial="hidden"
@@ -116,7 +135,38 @@ export default function ServiceCarousel({ service }: ServiceCarouselProps) {
           </p>
         </motion.div>
 
-        {/* Cards — peek layout with proper alignment */}
+        {/* Prose blocks */}
+        <motion.div
+          className="mb-10 space-y-6"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-40px" }}
+          variants={staggerContainer}
+        >
+          {prose.map((block, i) => (
+            <motion.div
+              key={i}
+              variants={proseReveal}
+              className={`border-l-[3px] ${theme.proseBorder} ${theme.proseBg} rounded-r-lg p-5 md:p-6`}
+            >
+              {block.items ? (
+                <ul className="space-y-2">
+                  {block.items.map((item, j) => (
+                    <li key={j} className={`font-body text-sm md:text-base leading-relaxed ${theme.proseText}`}>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <p className={`font-body text-sm md:text-base leading-relaxed ${theme.proseText}`}>
+                  {block.text}
+                </p>
+              )}
+            </motion.div>
+          ))}
+        </motion.div>
+
+        {/* Carousel cards */}
         <motion.div
           className="relative overflow-hidden"
           initial="hidden"
@@ -146,7 +196,7 @@ export default function ServiceCarousel({ service }: ServiceCarouselProps) {
               <motion.div
                 key={i}
                 variants={cardReveal}
-                className={`min-w-[${CARD_WIDTH_PERCENT}%] max-w-[${CARD_WIDTH_PERCENT}%] rounded-2xl p-6 md:p-8 ${theme.cardBg} transition-opacity duration-300 ${
+                className={`rounded-2xl p-6 md:p-8 ${theme.cardBg} transition-opacity duration-300 ${
                   i === activeIndex ? "opacity-100" : "opacity-35"
                 }`}
                 style={{
@@ -162,9 +212,27 @@ export default function ServiceCarousel({ service }: ServiceCarouselProps) {
                 <h3 className={`font-heading text-lg md:text-xl mb-3 ${theme.cardTitle}`}>
                   {card.title}
                 </h3>
-                <p className={`font-body text-xs md:text-sm leading-relaxed ${theme.cardText}`}>
-                  {card.text}
-                </p>
+
+                {/* Render items list with checkmarks or free text */}
+                {card.items ? (
+                  <ul className="space-y-2.5">
+                    {card.items.map((item, j) => (
+                      <li key={j} className="flex items-start gap-2.5">
+                        <span className={`${theme.checkColor} font-bold text-sm mt-0.5 shrink-0`}>
+                          ✓
+                        </span>
+                        <span className={`font-body text-xs md:text-sm leading-relaxed ${theme.cardText}`}>
+                          {item}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  <p className={`font-body text-xs md:text-sm leading-relaxed ${theme.cardText}`}>
+                    {card.text}
+                  </p>
+                )}
+
                 {/* WhatsApp CTA on last card */}
                 {isLast && i === activeIndex && (
                   <motion.a

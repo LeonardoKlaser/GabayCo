@@ -50,6 +50,30 @@ export interface CarouselServiceData {
   cards: CarouselCard[];
 }
 
+export interface ProseBlock {
+  tag: string;
+  title: string;
+  text?: string;
+  items?: string[];
+}
+
+export interface UnifiedCard {
+  tag: string;
+  title: string;
+  text?: string;
+  items?: string[];
+}
+
+export interface ServiceSectionData {
+  id: string;
+  step: string;
+  title: string;
+  subtitle: string;
+  theme: "dark" | "cream";
+  prose: ProseBlock[];
+  cards: UnifiedCard[];
+}
+
 export const SERVICES: ServiceData[] = [
   {
     step: "01",
@@ -505,4 +529,196 @@ export const MARQUEE_PHRASES = [
   "INTENÇÃO",
   "CLAREZA",
   "CONSISTÊNCIA",
+];
+
+export const UNIFIED_SERVICES: ServiceSectionData[] = [
+  {
+    id: "planejamento",
+    step: "01",
+    title: "Planejamento Estratégico",
+    subtitle: "Estratégia + roteiros + calendário editorial mensal",
+    theme: "dark",
+    prose: [
+      {
+        tag: "DESTAQUE",
+        title: "Você precisa de direção",
+        text: "Você não precisa de mais ideias, precisa de direção. O planejamento estratégico foi pensado para auxiliar na criação de conteúdo, com o objetivo de atrair, conectar e gerar venda, garantindo a clareza do que fazer e por quê. É focado no seu posicionamento, conhecimento de mercado e a venda direta e indireta do seu serviço, gerando identificação com o público e reforçando o seu devido valor.",
+      },
+    ],
+    cards: [
+      {
+        tag: "O QUE VOCÊ RECEBE",
+        title: "Entregáveis",
+        items: [
+          "Planejamento mensal",
+          "Estratégia de conteúdo",
+          "Roteiros e legendas",
+          "Calendário editorial",
+          "Direcionamento estratégico",
+          "Acompanhamento mensal",
+        ],
+      },
+      {
+        tag: "COMO FUNCIONA",
+        title: "Processo",
+        text: "A cada ciclo, analisamos sua comunicação, posicionamento e objetivos. A partir disso, você recebe um plano claro, com conteúdos estruturados para ter objetivo, fazer sentido na sua marca e ser fáceis de executar no seu dia a dia.",
+      },
+      {
+        tag: "RESULTADO",
+        title: "O que muda",
+        text: "Não é uma consultoria cheia de teoria, aqui você sai com um plano mensal de conteúdos pronto para executar com consistência, conteúdos estruturados, comunicação alinhada ao posicionamento e menos improviso.",
+      },
+    ],
+  },
+  {
+    id: "gestao",
+    step: "02",
+    title: "Gestão de Redes Sociais",
+    subtitle: "Tudo do Planejamento + edição + design + agendamento",
+    theme: "cream",
+    prose: [
+      {
+        tag: "DESTAQUE",
+        title: "Gestão estratégica completa",
+        text: "Uma gestão estratégica completa da sua comunicação digital, que une planejamento, criação e execução, cuidando de todo o processo, do direcionamento à publicação, com foco no seu posicionamento, no entendimento do seu mercado e na geração de vendas diretas e indiretas, fortalecendo sua marca, criando conexão com o público e aumentando o valor percebido do seu serviço.",
+      },
+    ],
+    cards: [
+      {
+        tag: "O QUE VOCÊ RECEBE",
+        title: "Entregáveis",
+        items: [
+          "Planejamento mensal",
+          "Estratégia de conteúdo",
+          "Roteiros e legendas",
+          "Calendário editorial",
+          "Direcionamento estratégico",
+          "Edição de vídeos",
+          "Design de artes",
+          "Agendamento",
+          "Acompanhamento mensal",
+        ],
+      },
+      {
+        tag: "COMO FUNCIONA",
+        title: "Processo",
+        text: "Aqui, você não precisa mais se preocupar em produzir, editar ou agendar seus conteúdos. Além da direção estratégica, você conta com a execução completa da sua comunicação.",
+      },
+      {
+        tag: "RESULTADO",
+        title: "O que muda",
+        text: "A ideia é facilitar sua rotina: você foca no seu negócio, enquanto a comunicação é executada com estratégia. O objetivo não é volume ou viralização, é construir percepção, coerência e valor ao longo do tempo.",
+      },
+    ],
+  },
+  {
+    id: "direcione",
+    step: "03",
+    title: "Método Direcione",
+    subtitle: "Clareza estratégica para alinhar sua marca, sua comunicação e o real nível do seu negócio",
+    theme: "dark",
+    prose: [
+      {
+        tag: "DESTAQUE",
+        title: "Começa no seu negócio",
+        text: "O Direcione não começa no Instagram. Ele começa no seu negócio. É um processo estratégico criado para organizar a base da sua empresa, identificar o problema real e te dar direção clara para crescer com consistência.",
+      },
+      {
+        tag: "COMO FUNCIONA",
+        title: "30 dias, 4 fases",
+        items: [
+          "Fase 1: Leitura do Negócio — entender a empresa por dentro",
+          "Fase 2: Pesquisa Orientada — percepção externa",
+          "Fase 3: Diagnóstico Estratégico — identificar erros e diferenciais",
+          "Fase 4: Direção e Plano de Ação — posicionamento claro e prioridades",
+        ],
+      },
+    ],
+    cards: [
+      {
+        tag: "O QUE VOCÊ RECEBE",
+        title: "Entregáveis",
+        items: [
+          "Diagnóstico Estratégico Completo",
+          "Lista de Prioridades",
+          "Narrativa de Marca",
+          "Guia Estratégico de Marca e Comunicação",
+        ],
+      },
+      {
+        tag: "RESULTADO",
+        title: "O que muda",
+        text: "Isso não é uma consultoria rasa. E também não é sobre \"melhorar seu Instagram\". É sobre organizar a base do seu negócio para que tudo o resto funcione. Se você sente que sua empresa está travada, mas sabe que entrega mais do que consegue mostrar, o Direcione é o próximo passo.",
+      },
+    ],
+  },
+  {
+    id: "perfil-do-zero",
+    step: "04",
+    title: "Perfil do Zero: Estrutura Completa",
+    subtitle: "Ajuste de perfil e alinhamento de conteúdos iniciais",
+    theme: "cream",
+    prose: [
+      {
+        tag: "DESTAQUE",
+        title: "A base da sua presença digital",
+        text: "Aqui você encontra a base da sua presença digital, com um plano personalizado que organiza seu perfil, define seu conteúdo e ajusta o necessário, garantindo que qualquer pessoa que entre no seu perfil entenda: o que você faz, para quem você faz e por que escolher você.",
+      },
+      {
+        tag: "COMO FUNCIONA",
+        title: "Processo",
+        text: "O processo começa com uma leitura estratégica do seu negócio, momento e objetivo. A partir disso, organizamos sua presença digital para que seu perfil tenha estrutura, comunique com clareza e esteja pronto para crescer com consistência.",
+      },
+    ],
+    cards: [
+      {
+        tag: "O QUE VOCÊ RECEBE",
+        title: "Entregáveis",
+        items: [
+          "Um encontro online",
+          "Documento de construção inicial personalizado",
+          "Suporte no WhatsApp por 07 dias",
+        ],
+      },
+      {
+        tag: "RESULTADO",
+        title: "O que muda",
+        text: "Você constrói um perfil estratégico, com conteúdos alinhados ao seu posicionamento através de uma comunicação com intenção desde o início e isso muda completamente a forma como você cresce e se posiciona.",
+      },
+    ],
+  },
+  {
+    id: "rotina-em-conteudo",
+    step: "05",
+    title: "Transforme sua Rotina em Conteúdo",
+    subtitle: "Workshop de 1h + GPT personalizado",
+    theme: "dark",
+    prose: [
+      {
+        tag: "DESTAQUE",
+        title: "O problema não é falta de conteúdo",
+        text: "É um encontro estratégico e prático para te ensinar a transformar sua rotina, suas experiências e as dúvidas dos seus clientes em conteúdo para as redes sociais. Aqui você não recebe um planejamento complexo, você aprende a pensar conteúdo no dia a dia, sem travar.",
+      },
+      {
+        tag: "O QUE VOCÊ APRENDE",
+        title: "Conteúdo do workshop",
+        text: "Como identificar conteúdo no dia a dia, como transformar situações em conteúdo, como pensar conteúdo sem travar e criação de ideias na prática — construímos juntos ideias de posts e temas para você já começar.",
+      },
+    ],
+    cards: [
+      {
+        tag: "O QUE VOCÊ RECEBE",
+        title: "Entregáveis",
+        items: [
+          "Encontro online de 1h",
+          "Sistema prático (GPT personalizado) para transformar rotina em conteúdo",
+        ],
+      },
+      {
+        tag: "RESULTADO",
+        title: "O que muda",
+        text: "Essa não é uma aula sobre redes sociais. É um encontro para mudar a forma como você pensa conteúdo. Quem documenta, nunca fica sem conteúdo e quem observa o dia a dia, sempre tem o que comunicar.",
+      },
+    ],
+  },
 ];
